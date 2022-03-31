@@ -19,7 +19,7 @@ if 'curseforge' not in setting or not path.exists(setting['curseforge']):
     root.withdraw()
     root.attributes('-topmost', True)
     launch=filedialog.askopenfilename(
-        title='curseforge launcher profiles (json)',
+        title='Select curseforge launcher profiles (json)',
         initialdir=path.join(os.environ['USERPROFILE'],"curseforge\minecraft\Install"),
         initialfile="launcher_profiles.json"
     )
