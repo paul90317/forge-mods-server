@@ -48,4 +48,3 @@ else:
     dump_env({'java':javapath,'mem':mem},'env.txt')
 
 os.system(javapath+f" -Xmx{mem}G -Xms{mem}G -jar {server} nogui")
-os.system('pause')

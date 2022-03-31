@@ -17,6 +17,7 @@ server_script=open('run_server.py','r').read()
 if 'curseforge' not in setting or not path.exists(setting['curseforge']):
     root=tk.Tk()
     root.withdraw()
+    root.attributes('-topmost', True)
     launch=filedialog.askopenfilename(
         title='curseforge launcher profiles (json)',
         initialdir=path.join(os.environ['USERPROFILE'],"curseforge\minecraft\Install"),
@@ -87,9 +88,9 @@ print('Copying Mods...')
 shutil.copytree(modspath_src,'mods',dirs_exist_ok=True)
 print('Creating server script (run_server.py)')
 open('run_server.py','w').write(server_script)
+open('run-server.bat','w').write('@echo off\npython run_server.py\npause')
 print('finish')
 
 import subprocess
 subprocess.Popen('explorer .')
-
 os.system('pause')

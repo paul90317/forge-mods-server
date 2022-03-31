@@ -1,33 +1,8 @@
-import tkinter as tk
-from tkinter import filedialog
 import os
 from os import path
 import json
 
-setting={}
-if path.exists('setting.json'):
-    with open('setting.json') as f:
-        try:
-            setting=json.load(f)
-        except:
-            print('setting.json can\'t be parsing!')
-
-if 'minecraft' not in setting or not path.exists(setting['minecraft']):
-    root=tk.Tk()
-    root.withdraw()
-    launch=filedialog.askopenfilename(
-        title='minecraft launcher profiles (json)',
-        initialdir=path.join(os.getenv('APPDATA'),".minecraft"),
-        initialfile="launcher_profiles.json"
-    )
-    setting['minecraft']=launch
-else:
-    launch=setting['minecraft']
-
-with open('setting.json','w') as f:
-    json.dump(setting,f)
-
-client=path.dirname(launch)
+client=path.join(os.getenv('APPDATA'),".minecraft")
 
 data=json.loads(input('input modlist: '))
 version=data['v']

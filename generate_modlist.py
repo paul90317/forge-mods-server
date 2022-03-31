@@ -17,6 +17,7 @@ server_script=open('run_server.py','r').read()
 if 'curseforge' not in setting or not path.exists(setting['curseforge']):
     root=tk.Tk()
     root.withdraw()
+    root.attributes('-topmost', True)
     launch=filedialog.askopenfilename(
         title='curseforge launcher profiles (json)',
         initialdir=path.join(os.environ['USERPROFILE'],"curseforge\minecraft\Install"),
